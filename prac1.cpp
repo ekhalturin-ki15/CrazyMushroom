@@ -1,42 +1,46 @@
 ﻿#include <iostream>
-#include <cstdio> // из C в С++
+#include <cstdio>
+#include <vector>
 
-//Плохо?
 using namespace std;
 
-#pragma warning( disable : 4996) // Небезопас функ вкл
-
-namespace RED
+struct Srcreen
 {
+    int iSizeW = 10;
+    int iSizeH = 10;
 
-}
+    //Сначала Y, потом X
+    vector<vector<int>> arrMap;
+
+    Srcreen()
+    {
+
+        //Иниц. размеров поля
+        arrMap.resize(iSizeH);
+        for (int Y = 0; Y < iSizeH; ++Y)
+        {
+            arrMap[Y].resize(iSizeW);
+        }
+        //arrMap.assign(iSizeH, vector<int>(iSizeW));
+    }
+
+    void OutScreen()
+    {
+
+
+
+
+
+    }
+
+};
 
 int main()
 {
-    cout << "Hello World!\n";
-    int a, b;
     
-    //Учитываются пробелы
-    cin >> std::noskipws >> a >> b;
-
-    //(По умолчанию) Игнор все разделитель
-    cin >> a >> b;
-
-    //Безопасный C++
-    //freopen_s
-
-    //Безопасный C++ паралл мьютексы
-    //scanf();
-
-    // По умолчанию ввод на него
-    //scanf_s();
-
-    // Отключить привязку scanf printf
-    //10^6
-    ios_base::sync_with_stdio(false);
 
 
-    
+
 
 
 }
