@@ -82,8 +82,10 @@ struct EnemyController
 	EnemyController(int _iPower, ScreenController* _ptrScreen)
 	{
 		iPower = _iPower;
+		ptrScreen = _ptrScreen;
 	}
 
+	//Вывод true если проиграли
 	bool Turn()
 	{
 		int iTurnLimit = iPower;
@@ -94,11 +96,22 @@ struct EnemyController
 			int iTargetX = (rand()% ptrScreen->iSizeW);
 			int iTargetY = (rand()% ptrScreen->iSizeH);
 
+			int iCurrentPower;
+			if (iTurnLimit <= 1)
+				iCurrentPower = 1;
+			else
+				iCurrentPower = (rand() % (iTurnLimit)) + 1;
 
+			iTurnLimit -= iCurrentPower;
+			ptrScreen->arrMap[iTargetY][iTargetX] += iCurrentPower;
+			if (ptrScreen->arrMap[iTargetY][iTargetX] > 9)
+				return true;
 		}
 
 
+		return false;
 	}
+
 };
 
 struct PlayerController
@@ -108,12 +121,15 @@ struct PlayerController
 
 	PlayerController(ScreenController* _ptrScreen)
 	{
+		ptrScreen = _ptrScreen;
 	}
 
 	bool Turn()
 	{
+		int iChoosen;
+		cin >> iChoosen;
 
-
+		return false;
 	}
 };
 
